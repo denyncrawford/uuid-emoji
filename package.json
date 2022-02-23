@@ -2,9 +2,20 @@
   "name": "uuid-emoji",
   "version": "1.0.0",
   "description": "Generate UUIDs the right way",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/localit.d.ts",
+  "typings": "lib/localit.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "test": "jest"
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "pretty": "yarn prettier:fix && yarn lint:fix"
   },
   "repository": {
     "type": "git",
@@ -23,9 +34,23 @@
     "url": "https://github.com/AlexMayol/uuid-emoji/issues"
   },
   "homepage": "https://github.com/AlexMayol/uuid-emoji#readme",
-  "dependencies": {
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
     "@types/jest": "^27.4.1",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
+    "babel-jest": "^26.6.3",
+    "esbuild": "0.12.7",
     "jest": "^27.5.1",
-    "typescript": "^4.5.5"
+    "prettier": "^2.5.1",
+    "rollup": "^2.68.0",
+    "rollup-plugin-dts": "^4.1.0",
+    "rollup-plugin-esbuild": "^4.8.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.5.5",
+    "eslint": "^8.9.0"
   }
 }

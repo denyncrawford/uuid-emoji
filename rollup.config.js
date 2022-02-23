@@ -14,19 +14,12 @@ export default [
     plugins: [esbuild(), terser()],
     output: [
       {
-        name: "localit",
+        name: "uuid-emoji",
         file: `${name}.js`,
         exports: "named",
         format: "umd",
         sourcemap: false,
-      },
-      {
-        name: "localit",
-        dir: "browser",
-        exports: "named",
-        format: "umd",
-        sourcemap: false,
-      },
+      }
     ],
   }),
   bundle({
