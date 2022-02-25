@@ -1,11 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.uuid = exports.emojis = void 0;
-exports.emojis = ["🥵", "💩", "🚵🏻‍♂️", "🚶🏼", "🍱", "🥟"];
-const shuffledArray = (arr) => arr.sort(() => 0.5 - Math.random());
-/**
- * Generate a random UUID composed of emojis
- * @returns UUID string
- */
-const uuid = () => shuffledArray(exports.emojis).join("");
-exports.uuid = uuid;
+exports.emojiUUID = exports.emojid = void 0;
+var emojid_1 = require("./emojid");
+Object.defineProperty(exports, "emojid", { enumerable: true, get: function () { return emojid_1.emojid; } });
+var emojiUUID_1 = require("./emojiUUID");
+Object.defineProperty(exports, "emojiUUID", { enumerable: true, get: function () { return emojiUUID_1.emojiUUID; } });

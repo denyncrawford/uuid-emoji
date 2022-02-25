@@ -1,32 +1,37 @@
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 import dts from "rollup-plugin-dts";
 import esbuild from "rollup-plugin-esbuild";
 import { terser } from "rollup-plugin-terser";
 
-const name = require("./package.json").main.replace(/\.js$/, "");
-const bundle = (config) => ({
-  ...config,
-  input: "src/index.ts",
-  external: (id) => !/^[./]/.test(id),
-});
-
 export default [
-  bundle({
-    plugins: [esbuild(), terser()],
+  {
+    input: "./dist/index.js",
+    plugins: [nodeResolve(), commonjs(), terser()],
     output: [
       {
-        name: "uuid-emoji",
-        file: `${name}.js`,
-        exports: "named",
-        format: "umd",
-        sourcemap: false,
-      }
+        file: "lib/uuid-emoji.js",
+        format: "es",
+      },
     ],
-  }),
-  bundle({
+  },
+  {
+    input: "./dist/index.js",
+    plugins: [nodeResolve(), commonjs(), terser()],
+    output: [
+      {
+        name: "emojid",
+        file: "lib/uuid-emoji-iife.js",
+        format: "iife",
+      },
+    ],
+  },
+  {
+    input: "./dist/index.d.ts",
     plugins: [dts()],
     output: {
-      file: `${name}.d.ts`,
+      file: "lib/emojid.d.ts",
       format: "es",
     },
-  }),
+  },
 ];

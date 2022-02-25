@@ -1,6 +1,2 @@
-export declare const emojis: string[];
-/**
- * Generate a random UUID composed of emojis
- * @returns UUID string
- */
-export declare const uuid: () => string;
+export { emojid } from "./emojid";
+export { emojiUUID } from "./emojiUUID";
